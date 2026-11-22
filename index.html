@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taufik's Portfolio - Sistem Informasi</title>
+    <!-- Font Editorial dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-light: #f1f5f9;       /* Latar belakang terang */
+            --navy-dark: #0a192f;      /* Navy sangat gelap */
+            --navy-mid: #112240;       /* Navy sedang */
+            --navy-accent: #1d4ed8;    /* Biru royal */
+            --sky-accent: #38bdf8;     /* Biru muda cerah */
+            --text-dark: #0f172a;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.5;
+        }
+
+        /* Navigasi Atas ala Majalah */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 18px 5%;
+            background-color: var(--bg-light);
+            border-bottom: 2px solid var(--navy-dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--navy-dark);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--navy-accent);
+        }
+
+        /* HERO SECTION (Gaya Editorial Overlapping) */
+        .hero {
+            position: relative;
+            background-color: var(--bg-light);
+            padding: 40px 5% 0;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 3px solid var(--navy-dark);
+        }
+
+        .hero-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .script-name {
+            font-family: 'Caveat', cursive;
+            font-size: 5rem;
+            color: var(--navy-accent);
+            transform: rotate(-6deg);
+            line-height: 0.8;
+            margin-bottom: -15px;
+            text-align: left;
+        }
+
+        .sub-badge {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.2rem;
+            color: var(--navy-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+        .giant-title {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(5.5rem, 19vw, 15rem);
+            color: var(--navy-dark);
+            line-height: 0.85;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 1;
+            user-select: none;
+        }
+
+        /* Foto Tengah yang Menumpuk Tulisan PORTFOLIO */
+        .hero-photo-wrapper {
+            position: relative;
+            z-index: 2;
+            margin-top: -170px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo-wrapper img {
+            width: 340px;
+            height: 400px;
+            object-fit: cover;
+            object-position: top;
+            filter: drop-shadow(0 10px 20px rgba(10, 25, 47, 0.35));
+        }
+
+        .hero-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: -50px auto 25px;
+            position: relative;
+            z-index: 3;
+            text-align: left;
+        }
+
+        .hero-tagline {
+            max-width: 340px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy-dark);
+            background: rgba(241, 245, 249, 0.92);
+            padding: 10px 14px;
+            border-left: 4px solid var(--navy-accent);
+        }
+
+        .btn-contact {
+            background-color: var(--navy-dark);
+            color: var(--text-light);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--navy-accent);
+        }
+
+        /* GRID UTAMA (Bento Layout ala Referensi) */
+        .bento-container {
+            max-width: 1150px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .box {
+            padding: 35px;
+            border-radius: 4px;
+            border: 2px solid var(--navy-dark);
+        }
+
+        .box-navy {
+            background-color: var(--navy-dark);
+            color: var(--text-light);
+        }
+
+        .box-light {
+            background-color: #ffffff;
+            color: var(--text-dark);
+        }
+
+        .editorial-heading {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        /* Bagian WHO AM I */
+        .stats-row {
+            display: flex;
+            gap: 25px;
+            margin: 25px 0 0;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item h4 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: var(--sky-accent);
+        }
+
+        .stat-item p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Bagian PENDIDIKAN (Education) */
+        .edu-pills {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .edu-pill {
+            border: 1.5px solid var(--navy-dark);
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--bg-light);
+            transition: 0.2s;
+        }
+
+        .edu-pill:hover {
+            background-color: var(--navy-dark);
+            color: white;
+        }
+
+        .edu-pill strong {
+            font-size: 0.95rem;
+        }
+
+        .edu-pill span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--navy-accent);
+        }
+
+        .edu-pill:hover span {
+            color: var(--sky-accent);
+        }
+
+        /* Bagian KARYA (Full Width & Interaktif) */
+        .full-span {
+            grid-column: 1 / -1;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .work-card {
+            border: 1.5px solid var(--navy-dark);
+            background-color: var(--bg-light);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(10, 25, 47, 0.2);
+            border-color: var(--navy-accent);
+        }
+
+        .work-badge {
+            background-color: var(--navy-dark);
+            color: var(--sky-accent);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .work-card h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            color: var(--navy-dark);
+        }
+
+        .work-card p {
+            font-size: 0.88rem;
+            color: #334155;
+        }
+
+        .click-hint {
+            margin-top: 15px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--navy-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Bagian RIWAYAT KERJA (Experience) */
+        .exp-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .exp-card {
+            background-color: var(--navy-mid);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 22px;
+            border-radius: 6px;
+        }
+
+        .exp-card span {
+            font-size: 0.75rem;
+            color: var(--sky-accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .exp-card h3 {
+            font-size: 1.15rem;
+            margin: 6px 0 10px;
+            color: white;
+        }
+
+        .exp-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* POP-UP MODAL GALERI KARYA */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 25, 47, 0.92);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 850px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 3px solid var(--sky-accent);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--navy-dark);
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #ef4444;
+        }
+
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .modal-gallery img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            background-color: var(--navy-dark);
+            padding: 8px;
+            border-radius: 6px;
+            border: 2px solid var(--navy-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 3px solid var(--sky-accent);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsif untuk Layar HP */
+        @media (max-width: 850px) {
+            .bento-container { grid-template-columns: 1fr; }
+            .work-grid, .exp-list { grid-template-columns: 1fr; }
+            .hero-photo-wrapper { margin-top: -70px; }
+            .hero-photo-wrapper img { width: 240px; height: 290px; }
+            .hero-bottom-bar { flex-direction: column; gap: 15px; margin-top: 15px; text-align: center; }
+            .script-name { font-size: 3.5rem; }
+            .sub-badge { font-size: 1.4rem; }
+        }
+
+        @media (max-width: 650px) {
+            .modal-gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi Atas -->
+    <nav>
+        <a href="#tentang">Tentang Saya</a>
+        <a href="#pendidikan">Pendidikan</a>
+        <a href="#karya">Karya</a>
+        <a href="#pengalaman">Pengalaman</a>
+        <a href="https://wa.me/6283873333832" target="_blank">Kontak</a>
+    </nav>
+
+    <!-- Bagian Utama (Hero Editorial) -->
+    <header class="hero">
+        <div class="hero-top-row">
+            <div class="script-name">Taufik's</div>
+            <div class="sub-badge">SISTEM INFORMASI</div>
+        </div>
+        
+        <h1 class="giant-title">PORTFOLIO</h1>
+
+        <div class="hero-photo-wrapper">
+            <img src="foto-profil.png" alt="Taufik Azfar Firdaus">
+        </div>
+
+        <div class="hero-bottom-bar">
+            <div class="hero-tagline">
+                <strong>TAUFIK AZFAR FIRDAUS</strong> — Mahasiswa Sistem Informasi Semester 1 di Universitas Mandiri yang fokus pada pengembangan digital & desain kreatif.
+            </div>
+            <a href="https://wa.me/6283873333832" target="_blank" class="btn-contact">HUBUNGI WHATSAPP &rarr;</a>
+        </div>
+    </header>
+
+    <!-- Kontainer Grid ala Majalah -->
+    <main class="bento-container">
+
+        <!-- Kotak 1: WHO AM I (Navy Gelap) -->
+        <section id="tentang" class="box box-navy">
+            <h2 class="editorial-heading">WHO AM I</h2>
+            <p style="font-size: 0.92rem; color: #cbd5e1; margin-bottom: 15px;">
+                Saya <strong>Taufik Azfar Firdaus</strong>, mahasiswa aktif Program Studi Sistem Informasi Semester 1 di Universitas Mandiri. Saya menggabungkan logika pemrograman dengan kreativitas visual untuk menciptakan solusi digital yang bermanfaat.
+            </p>
+            <p style="font-size: 0.92rem; color: #cbd5e1;">
+                Berbekal pengalaman di bidang pelayanan (<em>hospitality</em>), kepemimpinan Pramuka, hingga produksi konten kreatif, saya terbiasa bekerja secara terstruktur dan komunikatif.
+            </p>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <h4>Sem 1</h4>
+                    <p>Sistem Informasi</p>
+                </div>
+                <div class="stat-item">
+                    <h4>3+</h4>
+                    <p>Karya Digital</p>
+                </div>
+                <div class="stat-item">
+                    <h4>100%</h4>
+                    <p>Siap Berkarya</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kotak 2: EDUCATION / PENDIDIKAN (Terang) -->
+        <section id="pendidikan" class="box box-light">
+            <h2 class="editorial-heading" style="color: var(--navy-dark);">EDUCATION</h2>
+            <div class="edu-pills">
+                <div class="edu-pill">
+                    <strong>Universitas Mandiri (S1 Sistem Informasi)</strong>
+                    <span>2026 - Sekarang</span>
+                </div>
+                <div class="edu-pill">
+                    <strong>MA Jalancagak</strong>
+                    <span>2023 - 2026</span>
+                </div>
+                <div class="edu-pill">
+                    <strong>MTs Riyadhus Sholihin</strong>
+                    <span>2020 - 2023</span>
+                </div>
+                <div class="edu-pill">
+                    <strong>SDN Hegarmanah</strong>
+                    <span>2014 - 2020</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kotak 3: MY WORK INCLUDES / KARYA (Full Width & Bisa Diklik) -->
+        <section id="karya" class="box box-light full-span">
+            <h2 class="editorial-heading" style="color: var(--navy-dark);">MY WORK INCLUDES</h2>
+            <div class="work-grid">
+                
+                <!-- Karya 1 -->
+                <div class="work-card" onclick="bukaGaleri('qr')">
+                    <div>
+                        <span class="work-badge">01 • Sistem Digital</span>
+                        <h3>ABSEN DIGITAL SCAN QR</h3>
+                        <p>Membangun sistem presensi modern berbasis pemindaian QR Code untuk mempercepat proses pencatatan kehadiran dan meminimalkan kesalahan rekap data.</p>
+                    </div>
+                    <div class="click-hint">Klik untuk lihat 6 gambar &rarr;</div>
+                </div>
+
+                <!-- Karya 2 -->
+                <div class="work-card" onclick="bukaGaleri('video')">
+                    <div>
+                        <span class="work-badge">02 • Videografi</span>
+                        <h3>VIDEO DOKUMENTASI SEKOLAH</h3>
+                        <p>Memproduksi video liputan dan dokumentasi berbagai agenda resmi sekolah, mulai dari pengambilan gambar hingga proses penyuntingan (<em>editing</em>).</p>
+                    </div>
+                    <div class="click-hint">Klik untuk lihat 3 gambar &rarr;</div>
+                </div>
+
+                <!-- Karya 3 -->
+                <div class="work-card" onclick="bukaGaleri('desain')">
+                    <div>
+                        <span class="work-badge">03 • Desain Grafis</span>
+                        <h3>DESAIN POSTINGAN SEKOLAH</h3>
+                        <p>Merancang materi visual informatif dan konten media sosial sekolah agar pesan tersampaikan dengan estetika yang rapi dan menarik.</p>
+                    </div>
+                    <div class="click-hint">Klik untuk lihat 6 desain &rarr;</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Kotak 4: EXPERIENCE / RIWAYAT KERJA (Navy Gelap Full Width) -->
+        <section id="pengalaman" class="box box-navy full-span">
+            <h2 class="editorial-heading">WORK EXPERIENCE</h2>
+            <div class="exp-list">
+                <div class="exp-card">
+                    <span>Praktik Kerja Lapangan (PKL)</span>
+                    <h3>Cikole Jayagiri</h3>
+                    <p>Bertugas di bagian <strong>Front Office, Bellboy, & Housekeeping</strong>. Terlatih dalam komunikasi pelayanan prima, administrasi tamu, dan manajemen fasilitas.</p>
+                </div>
+                <div class="exp-card">
+                    <span>Part-Time</span>
+                    <h3>Pelatih Pramuka</h3>
+                    <p>Membina serta melatih kedisiplinan, kepemimpinan, keterampilan lapangan, dan kerja sama tim bagi anggota pramuka.</p>
+                </div>
+                <div class="exp-card">
+                    <span>Proyek Independen</span>
+                    <h3>Freelancer</h3>
+                    <p>Mengerjakan berbagai proyek lepas di bidang pembuatan konten visual, dokumentasi, dan solusi digital sesuai kebutuhan klien.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h3 style="font-family: 'Anton', sans-serif; letter-spacing: 2px; font-size: 1.5rem; margin-bottom: 5px;">TAUFIK AZFAR FIRDAUS</h3>
+        <p>WhatsApp: 0838-7333-3832 &bull; Mahasiswa Sistem Informasi &bull; &copy; 2026</p>
+    </footer>
+
+    <!-- Wadah Pop-Up Galeri Gambar -->
+    <div id="galeriModal" class="modal" onclick="tutupLuar(event)">
+        <div class="modal-content">
+            <span class="close-btn" onclick="tutupGaleri()">&times;</span>
+            <h2 id="modalJudul" class="editorial-heading" style="font-size: 2rem; color: var(--navy-dark); margin-bottom: 8px;"></h2>
+            <p id="modalDeskripsi" style="font-size: 0.9rem; color: #334155;"></p>
+            <div id="modalGambar" class="modal-gallery"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript untuk Mengatur Galeri -->
+    <script>
+        const dataKarya = {
+            qr: {
+                judul: "ABSEN DIGITAL SCAN QR",
+                deskripsi: "Dokumentasi 6 tampilan antarmuka dan penggunaan sistem absensi berbasis pemindaian QR Code.",
+                gambar: [
+                    "qr-1.jpg",
+                    "qr-2.jpg",
+                    "qr-3.jpg",
+                    "qr-4.jpg",
+                    "qr-5.jpg",
+                    "qr-6.jpg"
+                ]
+            },
+            video: {
+                judul: "VIDEO DOKUMENTASI SEKOLAH",
+                deskripsi: "Cuplikan proses produksi dan hasil dokumentasi video kegiatan resmi sekolah.",
+                gambar: [
+                    "video-1.jpg",
+                    "video-2.jpg",
+                    "video-3.jpg"
+                ]
+            },
+            desain: {
+                judul: "DESAIN POSTINGAN SEKOLAH",
+                deskripsi: "Kumpulan 6 karya desain poster dan konten media sosial publikasi sekolah.",
+                gambar: [
+                    "desain-1.jpg",
+                    "desain-2.jpg",
+                    "desain-3.jpg",
+                    "desain-4.jpg",
+                    "desain-5.jpg",
+                    "desain-6.jpg"
+                ]
+            }
+        };
+
+        function bukaGaleri(kategori) {
+            const karya = dataKarya[kategori];
+            document.getElementById("modalJudul").innerText = karya.judul;
+            document.getElementById("modalDeskripsi").innerText = karya.deskripsi;
+
+            const wadahGambar = document.getElementById("modalGambar");
+            wadahGambar.innerHTML = "";
+
+            karya.gambar.forEach(file => {
+                const img = document.createElement("img");
+                img.src = file;
+                img.alt = karya.judul;
+                wadahGambar.appendChild(img);
+            });
+
+            document.getElementById("galeriModal").style.display = "flex";
+        }
+
+        function tutupGaleri() {
+            document.getElementById("galeriModal").style.display = "none";
+        }
+
+        function tutupLuar(event) {
+            if (event.target.id === "galeriModal") {
+                tutupGaleri();
+            }
+        }
+    </script>
+
+</body>
+</html>
